@@ -7,6 +7,20 @@
     <h1 class="text-dark">Module Champ d'applications</h1>
     <h2 class="text-success">Séance TP 1</h2>
     <p>Prise en main d'Angular, première application</p>
+    <div class="card-container w-50 m-auto">
+      <h3>Liste étudiants :</h3>
+      <div class="row">
+        <div class="col-xs-12">
+          @for (student of students) {
+          <app-etudiant 
+            [nomEtu]="student.nomEtu" 
+            [prenomEtu]="student.prenomEtu" 
+            [statutEtu]="student.statutEtu">
+          </app-etudiant>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" [disabled]="estAuth" (click)="rendTousPresents()">Tous présents</button>
   </div>
 </main>
 
