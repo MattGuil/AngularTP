@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { EtudiantComponent } from './components/etudiant/etudiant.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EtudiantComponent],
+  imports: [RouterOutlet, EtudiantComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,6 +24,8 @@ export class AppComponent {
     setTimeout(() => {
       this.estAuth = true;
     }, 5000);
+
+    console.log(this.students);
   }
 
   rendTousPresents() {
