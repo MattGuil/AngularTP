@@ -1,25 +1,29 @@
 <style>
-  
+
 </style>
 
 <main class="main">
-  <div class="content text-center pt-5">
+  <div class="content w-50 m-auto">
     <h1 class="text-dark">Module Champ d'applications</h1>
-    <h2 class="text-success">Séance TP 1</h2>
-    <p>Prise en main d'Angular, première application</p>
-    <div class="card-container w-50 m-auto">
+    <h2 class="text-success">Séance TP 2</h2>
+    <input type="text" class="form-control" [(ngModel)]="commentaireSeance" placeholder="Entrez un commentaire">
+    <br>
+    <div class="card-container">
       <h3>Liste étudiants :</h3>
       <div class="row">
         <div class="col-xs-12">
-          <app-etudiant *ngFor="let student of students" 
-            [nomEtu]="student.nomEtu" 
-            [prenomEtu]="student.prenomEtu" 
-            [statutEtu]="student.statutEtu">
+          <app-etudiant *ngFor="let student of students" [nomEtu]="student.nomEtu" [prenomEtu]="student.prenomEtu"
+            [statutEtu]="student.statutEtu" [commentaire]="commentaireSeance">
           </app-etudiant>
         </div>
       </div>
     </div>
-    <button class="btn btn-success" [disabled]="estAuth" (click)="rendTousPresents()">Tous présents</button>
+    <button 
+      class="btn btn-success mt-5" 
+      [disabled]="estAuth" 
+      (click)="(etat == 'absent') ? rendTousPresents() : rendTousAbsents()">
+      {{ etat == "absent" ? "Tous présents" : "Tous absents" }}
+    </button>
   </div>
 </main>
 

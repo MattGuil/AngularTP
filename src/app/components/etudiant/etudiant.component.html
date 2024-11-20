@@ -1,4 +1,12 @@
-<li class="card card-small">
-    <h4>{{ retNomEtu() }} {{ retPrenomEtu() }}</h4>
-    <p>Statut : {{ retStatutEtu() }}</p>
+<li [ngClass]="{
+        'list-group-item': true,
+        'list-group-item-success': retStatutEtu() == 'present',
+        'list-group-item-danger': retStatutEtu() == 'absent'
+    }"
+>
+    <div>
+        <h4>{{ retNomEtu() }} {{ retPrenomEtu() }}</h4>
+        <p *ngIf="commentaire != ''">Commentaire: {{ retCommentaire() }}</p>
+    </div>
+    <span [class]="retStatutEtu()"></span>
 </li>
