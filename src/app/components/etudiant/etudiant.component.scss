@@ -2,8 +2,25 @@
     border-radius: 5px;
     padding: 10px;
     margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-p {
+.list-group-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group-item div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start;
+}
+
+h4, p {
     margin: 0;
+}
+
+button {
+    margin-left: 5px;
 }

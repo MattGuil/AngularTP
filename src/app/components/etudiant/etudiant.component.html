@@ -6,7 +6,12 @@
 >
     <div>
         <h4>{{ retNomEtu() }} {{ retPrenomEtu() }}</h4>
-        <p *ngIf="commentaire != ''">Commentaire: {{ retCommentaire() }}</p>
+        <p><strong>Dernière modification:</strong> {{ retDerniereDateModif() }}</p>
+        <p *ngIf="commentaire != ''"><strong>Commentaire:</strong> {{ retCommentaire() }}</p>
     </div>
-    <span [class]="retStatutEtu()"></span>
+
+    <div>
+        <button class="btn btn-danger" [disabled]="isAbsent()" (click)="setAbsent()">Absent</button>
+        <button class="btn btn-success" [disabled]="!isAbsent()" (click)="setPresent()">Présent</button>
+    </div>
 </li>

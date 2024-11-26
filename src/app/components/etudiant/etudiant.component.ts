@@ -14,6 +14,7 @@ export class EtudiantComponent {
   @Input() prenomEtu = "Jean";
   @Input() statutEtu = "absent";
   @Input() commentaire = "";
+  derniereDateModif = new Date();
 
   retNomEtu(): string {
     return this.nomEtu;
@@ -29,5 +30,23 @@ export class EtudiantComponent {
 
   retCommentaire(): string {
     return this.commentaire;
+  }
+
+  retDerniereDateModif(): string {
+    return this.derniereDateModif.toString();
+  }
+
+  isAbsent(): boolean {
+    return this.statutEtu == "absent";
+  }
+
+  setAbsent(): void {
+    this.statutEtu = "absent";
+    this.derniereDateModif = new Date();
+  }
+
+  setPresent(): void {
+    this.statutEtu = "present";
+    this.derniereDateModif = new Date();
   }
 }
