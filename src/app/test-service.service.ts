@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class TestServiceService {
-  varTest = "Salut service Marche!!"
-  objectifs: String[] = ["Activite Test1", "Activite Test2"];
+	varTest = "Salut service Marche!!"
+	objectifs: String[] = ["Activite Test1", "Activite Test2"];
 
-  constructor() { }
-  getInfo(): string {
-    return this.varTest;
-  }
+	constructor() { }
+
+	getInfo(): string {
+		return this.varTest;
+	}
+
+	removeItem(index: number) {
+		this.objectifs.splice(index, 1);
+	}
+
+	mettreAJourItem(index: number, nouveauContenu: String) {
+		this.objectifs[index] = nouveauContenu;
+	}
 }
